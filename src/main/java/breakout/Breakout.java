@@ -46,11 +46,11 @@ public class Breakout extends Application {
                                   Color.MAGENTA, Color.PURPLE};
    // Free sounds downloaded from : https://www.noiseforfun.com
    // Win sound from : https://archive.org/details/FF7ACVictoryFanfareRingtoneperfectedMp3
-   private final String paddleHit = "sound/paddle_hit.wav";
-   private final String brickHit  = "sound/brick_hit.wav";
-   private final String died      = "sound/died.wav";
-   private final String gameover  = "sound/gameover.wav";
-   private final String gamewin   = "sound/win.wav";
+   private final String paddleHit = "audio/paddle_hit.wav";
+   private final String brickHit  = "audio/brick_hit.wav";
+   private final String died      = "audio/died.wav";
+   private final String gameover  = "audio/gameover.wav";
+   private final String gamewin   = "audio/win.wav";
    private final String bgImg     = "image/bg_stars.png";
 
    private List<Brick> brickList = new ArrayList<Brick>();
