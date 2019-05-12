@@ -3,7 +3,6 @@
  * Ball.java is the Model for the game ball
  * @author: Mickey Kim
  */
-
 import javafx.geometry.Dimension2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;

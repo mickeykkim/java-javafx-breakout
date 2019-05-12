@@ -3,7 +3,6 @@
  * Breakout.java is the Controller and View (JavaFX) for the game
  * @author: Mickey Kim
  */
-
 import java.io.File;
 import java.net.URL;
 import java.util.*;
@@ -48,10 +47,11 @@ public class Breakout extends Application {
    // Free sounds downloaded from : https://www.noiseforfun.com
    // Win sound from : https://archive.org/details/FF7ACVictoryFanfareRingtoneperfectedMp3
    private final String paddleHit = "sound/paddle_hit.wav";
-   private final String brickHit = "sound/brick_hit.wav";
-   private final String died = "sound/died.wav";
-   private final String gameover = "sound/gameover.wav";
-   private final String gamewin = "sound/win.wav";
+   private final String brickHit  = "sound/brick_hit.wav";
+   private final String died      = "sound/died.wav";
+   private final String gameover  = "sound/gameover.wav";
+   private final String gamewin   = "sound/win.wav";
+   private final String bgImg     = "image/bg_stars.png";
 
    private List<Brick> brickList = new ArrayList<Brick>();
    private Ball gameBall;
@@ -61,7 +61,7 @@ public class Breakout extends Application {
    @Override
    public void start(Stage stage) throws Exception {
       stage.setTitle("Breakout!");
-      Image photo = new Image("bg_stars.png"); 
+      Image photo = new Image(getClass().getResource(bgImg).toURI().toString()); 
       ImageView view = new ImageView(photo);
       root = new Group(view);
       Scene scene = new Scene(root, WIDTH, HEIGHT);

@@ -3,7 +3,6 @@
  * Paddle.java is the Model for the player controlled paddle
  * @author: Mickey Kim
  */
-
 import javafx.geometry.Dimension2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;

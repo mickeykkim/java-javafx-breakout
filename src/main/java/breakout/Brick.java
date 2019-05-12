@@ -3,7 +3,6 @@
  * Brick.java is the Model for a game brick; myHealth is brick health
  * @author: Mickey Kim
  */
-
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
