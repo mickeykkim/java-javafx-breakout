@@ -43,6 +43,8 @@ public class Breakout extends Application {
    private static final int BRICK_YOFFSET = 70;
    private static final int BRICK_XGAP    = 85;
    private static final int BRICK_YGAP    = 30;
+   private static final int SCORE_INCREM  = 100;
+   private static final int DEFAULT_LIVES = 3;
    private static final double BALL_RADIUS  = 10;
    private static final double BALL_SPEED   = 6;
    private static final double PADDLE_SPEED = 8;
@@ -60,7 +62,7 @@ public class Breakout extends Application {
                                   Color.MAGENTA, Color.PURPLE};
    private List<Brick> brickList = new ArrayList<Brick>();
    private boolean roundHasStarted = false;
-   private int playerLives  = 3;
+   private int playerLives  = DEFAULT_LIVES;
    private int currentLevel = 1;
    private int currentScore = 0;
    private final Label labelStart = new Label(
@@ -139,7 +141,7 @@ public class Breakout extends Application {
             }
             destroyBrick(currBrick);
             playSound("brick");
-            currentScore += 100;
+            currentScore += SCORE_INCREM;
             updateTopText(root);
          }
       }
@@ -162,7 +164,7 @@ public class Breakout extends Application {
          gameBall.hitPaddle();
          double speedX = gameBall.getVelX();
          double speedY = gameBall.getVelY();
-         double posX = (gameBall.getX() - gamePaddle.getMidX()) / (PWIDTH / 2);
+         double posX = (gameBall.getX() - gamePaddle.getMidX()) / (PWIDTH/2);
          double speedXY = Math.sqrt(speedX * speedX + speedY * speedY);
          speedX = speedXY * posX * PADDLE_XMOD;
          gameBall.setVelX(speedX);
@@ -178,7 +180,7 @@ public class Breakout extends Application {
          if (--playerLives == 0) {
             playSound("over");
             createSplashScreen(root, labelGameover);
-            playerLives = 3;
+            playerLives = DEFAULT_LIVES;
             currentScore = 0;
             createNewBricks(root);
          } else {
