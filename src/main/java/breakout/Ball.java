@@ -17,7 +17,7 @@ public class Ball extends Circle {
    private volatile boolean ballHitBrickBottom;
    private volatile boolean ballHitBrickLeft;
    private volatile boolean ballHitBrickRight;
-   private boolean ballDead = false;
+   private volatile boolean ballDead = false;
 
    public Ball(Dimension2D playfieldDims, double ballRad) {
       height = playfieldDims.getHeight();

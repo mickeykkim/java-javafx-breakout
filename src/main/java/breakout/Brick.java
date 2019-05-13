@@ -1,6 +1,6 @@
 /*
  * This is part of a simple breakout clone.
- * Brick.java is the Model for a game brick; myHealth is brick health
+ * Brick.java is the Model for a game brick
  * @author: Mickey Kim
  */
 import javafx.scene.paint.Color;
@@ -11,7 +11,7 @@ public class Brick extends Rectangle {
    private double leftBounds, rightBounds, upperBounds, lowerBounds;
    private double arcWidth = 5;
    private double arcHeight = 5;
-   private int myHealth;
+   private int myHealth; // brick "health" : number of hits needed to break
 
    public Brick(double x, double y, Color color, double width, double height, int health) {
       this.width = width;
@@ -49,5 +49,15 @@ public class Brick extends Rectangle {
    double getYLower() {
       double value = lowerBounds;
       return value;
+   }
+
+   // Getters and Setters for brick health
+   int getHealth() {
+      int returnValue = myHealth;
+      return returnValue;
+   }
+
+   void setHealth(int newHealth) {
+      myHealth = newHealth;
    }
 }

@@ -12,7 +12,7 @@ public class Paddle extends Rectangle {
    private double height, width, paddleWidth, paddleHeight;
    private double arcWidth = 15;
    private double arcHeight = 15;
-   private double paddleX;
+   private double paddleX; // left edge of paddle
    private double velX = 0;
 
    public Paddle(Dimension2D playfieldDims, double pWidth, double pHeight) {
