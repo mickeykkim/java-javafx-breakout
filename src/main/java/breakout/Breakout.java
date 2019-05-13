@@ -147,8 +147,8 @@ public class Breakout extends Application {
       if (brickList.isEmpty()) {
          playSound("win");
          createBallPaddleAndDestroyOld(root, true);
-         createNewBricks(root);
          currentLevel++;
+         createNewBricks(root);
          createSplashScreen(root, "gamewon");
          updateTopText(root);
       }
@@ -228,7 +228,7 @@ public class Breakout extends Application {
       int colorIndex = brickColors.length - 1;
       for (int i = 0; i < brickColors.length; i++) {
          for (int j = 0; j < brickColors.length; j++) {
-            Brick gameBrick = new Brick(xPos, yPos, brickColors[colorIndex], BWIDTH, BHEIGHT, currentLevel);
+            Brick gameBrick = new Brick(xPos, yPos, brickColors[colorIndex], BWIDTH, BHEIGHT, 1);
             xPos += BRICK_XGAP;
             gameBrick.setOnMousePressed(event -> this.destroyBrick(gameBrick));
             root.getChildren().add(gameBrick);
@@ -280,6 +280,10 @@ public class Breakout extends Application {
          gamePaddle.setVelX(PADDLE_SPEED);
       } else if (key.getCode() == KeyCode.LEFT || key.getCode() == KeyCode.A) {
          gamePaddle.setVelX(-PADDLE_SPEED);
+      }
+      if (key.getCode() == KeyCode.ENTER) {
+         currentLives++;
+         updateTopText(root);
       }
       if (key.getCode() == KeyCode.ESCAPE) {
          System.exit(0);
