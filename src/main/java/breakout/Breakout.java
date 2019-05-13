@@ -33,13 +33,13 @@ public class Breakout extends Application {
    // Constants
    private static final int FPS60MS  = 16; // number of milliseconds per update (~60FPS)
    private static final int WIDTH    = 600; // width of game window
-   private static final int HEIGHT   = 900; // height of game window
+   private static final int HEIGHT   = 800; // height of game window
    private static final int PWIDTH   = 100; // paddle width
    private static final int PHEIGHT  = 15; // paddle height
    private static final int BWIDTH   = 70; // brick width
    private static final int BHEIGHT  = 20; // brick height
-   private static final int LABELX    = 130; // x offset of splash stackpane
-   private static final int LABELY    = 380; // y offset of splash stackpane
+   private static final int LABELXSZ = WIDTH*2/3; // width of splash stackpane
+   private static final int LABELYSZ = HEIGHT/4; // height of splash stackpane
    private static final int BRICK_XOFFSET = 10; // x offset of bricks
    private static final int BRICK_YOFFSET = 70; // y offset of bricks
    private static final int BRICK_XGAP    = 85; // x gap between brick left wall
@@ -58,7 +58,7 @@ public class Breakout extends Application {
    private final String GAMEOVER  = "audio/gameover.wav";
    private final String GAMEWIN   = "audio/win.wav";
    private final String BGIMG     = "image/bg_stars.png";
-   // Game variables
+   // Game fields
    private boolean roundHasStarted = false;
    private int currentLives  = DEFAULT_LIVES;
    private int currentLevel = 1;
@@ -66,7 +66,7 @@ public class Breakout extends Application {
    private Color brickColors[] = {
       Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.MAGENTA, Color.PURPLE
    };
-   // Game object variables
+   // Game object fields
    private List<Brick> brickList = new ArrayList<Brick>();
    private StackPane splash = new StackPane();
    private GridPane topText = new GridPane();
@@ -347,20 +347,20 @@ public class Breakout extends Application {
             break;
          case "gamewon":
             label = new Label(
-               "Congratulations you won!\nNext Level: " + currentLevel +
-               "\nPress Space to continue" +
+               "Congratulations you won!\n\nScore: " + currentScore +
+               "\nPress Space to continue to level " + currentLevel +
                "\nPress ESC to exit game");
             break;
          default:
       }
       label.setStyle("-fx-text-fill: white; -fx-font: bold 20 \"serif\"; " +
                      "-fx-padding: 20 20 20 20; -fx-text-alignment: center");
-      splash.setPrefSize(WIDTH*2/3, HEIGHT/4);
+      splash.setPrefSize(LABELXSZ, LABELYSZ);
       splash.getChildren().clear();
       splash.getChildren().add(label);
       splash.setStyle("-fx-background-color: rgba(0, 100, 100, 0.5); -fx-background-radius: 10;");
-      splash.setTranslateX(WIDTH/2 - WIDTH*1/3);
-      splash.setTranslateY(HEIGHT/2 - HEIGHT/8);
+      splash.setTranslateX(WIDTH/2 - LABELXSZ/2);
+      splash.setTranslateY(HEIGHT/2 - LABELYSZ/2);
       root.getChildren().add(splash);
    }
 
